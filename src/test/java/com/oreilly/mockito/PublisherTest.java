@@ -1,10 +1,10 @@
-package com.oreilly;
+package com.oreilly.mockito;
 
+import com.oreilly.Publisher;
+import com.oreilly.Subscriber;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.stubbing.Answer;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class PublisherTest {
