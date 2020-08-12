@@ -5,7 +5,7 @@ import java.util.List;
 
 // Adapted from a similar example in the Spock framework
 public class Publisher {
-    private List<Subscriber> subscribers = new ArrayList<>();
+    private final List<Subscriber> subscribers = new ArrayList<>();
 
     public void addSubscriber(Subscriber sub) {
         if (!subscribers.contains(sub)) {
@@ -21,5 +21,16 @@ public class Publisher {
                 // evil, but what can you do?
             }
         }
+
+//        subscribers.forEach(s -> catchAndKillExceptions(s, message));
+    }
+
+    private void catchAndKillExceptions(Subscriber sub, String message) {
+        try {
+            sub.receive(message);
+        } catch (Exception ignored) {
+            // ignored
+        }
     }
 }
+
